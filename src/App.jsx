@@ -21,19 +21,21 @@ function App() {
       <div className="bg-white p-6 rounded shadow w-full max-w-sm">
         <h1 className="text-2xl font-bold mb-4 text-center">To-Do List</h1>
         <div className="flex mb-4">
-          <input
-            type="text"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-            placeholder="Enter task"
-            className="flex-grow p-2 border rounded-l"
-          />
-          <button
-            onClick={addTask}
-            className="bg-blue-500 text-white px-4 rounded-r"
-          >
-            Add
-          </button>
+        <form onSubmit={(e) => { e.preventDefault(); addTask(); }}>
+  <input
+    type="text"
+    value={task}
+    onChange={(e) => setTask(e.target.value)}
+    placeholder="Enter task"
+    className="flex-grow p-2 border rounded-l"
+  />
+  <button
+    type="submit"  
+    className="bg-blue-500 text-white px-4 rounded-r"
+  >
+    Add
+  </button>
+</form>
         </div>
         <ul>
           {tasks.map((t, index) => (
